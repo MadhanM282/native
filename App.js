@@ -27,6 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Geolocation from '@react-native-community/geolocation';
+import { SelectListBox } from './components/select';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -226,23 +227,18 @@ const App = () => {
 
   return (
     <View style={styles.containor}>
+      <View>
+        <SelectListBox />
+      </View>
       {Climate.name ?
         <View style={ClimateStyles.container}>
           <Text style={ClimateStyles.Text}>City:- {Climate.name}</Text>
-          <Text style={ClimateStyles.Text}>Temp:- {Climate.main.temp_max - 273.15}°C</Text>
+          <Text style={ClimateStyles.Text}>Temp:- {Math.floor(Climate.main.temp_max - 273.15)}°C</Text>
           <Text style={ClimateStyles.Text}>Pressure:- {Climate.main.pressure / 1000}-bar</Text>
           <Text style={ClimateStyles.Text}>Humidity:- {Climate.main.humidity}%</Text>
           <Text style={ClimateStyles.Text}>WindSpeed:- {Climate.wind.speed}M/S</Text>
         </View>
         : ""}
-      {/* <View>
-        <select>
-          <option value="grapefruit">Grapefruit</option>
-          <option value="lime">Lime</option>
-          <option selected value="coconut">Coconut</option>
-          <option value="mango">Mango</option>
-        </select>
-      </View> */}
       <View>
         <Text style={styles.result}>{Sum}</Text>
         <SafeAreaView>
@@ -260,6 +256,7 @@ const App = () => {
         <Text onPress={(e) => HandelMul()} style={styles.SpecialButtons}>*</Text>
         <Text style={styles.SpecialButtons} onPress={(e) => {
           SetSum(0)
+          SetHistory("")
         }} >C</Text>
       </View>
       <View style={styles.flex}>
