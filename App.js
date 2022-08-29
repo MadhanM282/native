@@ -30,6 +30,8 @@ import Geolocation from '@react-native-community/geolocation';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
+ 
+  const [Climate,SetClimate] = useState({})
 
   const [value, SetValue] = useState("")
 
@@ -94,6 +96,7 @@ const App = () => {
         setCurrentLongitude(currentLongitude);
         
         setCurrentLatitude(currentLatitude);
+        GetWeather()
       },
       (error) => {
         setLocationStatus(error.message);
@@ -107,6 +110,17 @@ const App = () => {
     );
   };
 
+  const GetWeather = async()=>{
+      try {
+        // console.log(currentLatitude)
+        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${"0d73de379dffe7d028b1d22e3459a4fc"}`)
+        const data = await res.json()
+        console.log(data)
+        SetClimate(data)
+      } catch (error) {
+        console.log(error.message)
+      }
+  }
  
 
   const HandelClick = (e) => {
