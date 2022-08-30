@@ -203,7 +203,7 @@ const App = () => {
       elevation: 10,
     },
     ValueEntered: {
-      marginTop: 375
+      marginTop: 275
     }
   });
  
