@@ -16,18 +16,13 @@ import {
   Platform,
   useColorScheme,
   View,
+  Button
 } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
 import Geolocation from '@react-native-community/geolocation';
-// import { SelectListBox } from './components/select';
+
+import { Picker } from '@react-native-picker/picker';
+
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -40,6 +35,47 @@ const App = () => {
   const [Sum, SetSum] = useState(0)
 
   const [History, SetHistory] = useState("")
+
+  const [City, setSelected] = useState("")
+
+  const [CityCords, SetCityCords] = useState({
+    latitude: "",
+    latitude: ""
+  })
+
+
+
+  // console.log(City,"City",CityCords)
+  const data = [
+    { key: 0, value: "Select City" },
+    { key: 1, value: "Delhi" },
+    { key: 1, value: "Mumbai" },
+    { key: 1, value: "Chennai" },
+    { key: 1, value: "Hyderabad" },
+    { key: 1, value: "Bengaluru" }
+  ]
+  const Options = {
+    Delhi: {
+      latitude: 28.6139,
+      longitude: 77.2090,
+    },
+    Mumbai: {
+      latitude: 19.0760,
+      longitude: 72.8777,
+    },
+    Bengaluru: {
+      latitude: 12.9716,
+      longitude: 77.5946,
+    },
+    Chennai: {
+      latitude: 13.0827,
+      longitude: 80.2707,
+    },
+    Hyderabad: {
+      latitude: 18.1124,
+      longitude: 79.0193,
+    }
+  }
 
   const [
     currentLongitude,
@@ -54,7 +90,10 @@ const App = () => {
     setLocationStatus
   ] = useState('');
 
+
   useEffect(() => {
+    if(City==""){
+
     const requestLocationPermission = async () => {
       if (Platform.OS === 'ios') {
         getOneTimeLocation();
@@ -81,14 +120,17 @@ const App = () => {
       }
     };
     requestLocationPermission();
+  }
+  else if(City!==""){
+    // GetWeatherOfCity(CityCords.latitude,CityCords.longitude)
+  }
 
-  }, []);
+  }, [CityCords]);
 
   const getOneTimeLocation = () => {
     setLocationStatus('Getting Location ...');
 
     Geolocation.getCurrentPosition(
-      //Will give you the current location
       (position) => {
         setLocationStatus('You are Here');
 
@@ -109,9 +151,9 @@ const App = () => {
         timeout: 30000,
         maximumAge: 1000
       },
-      setTimeout(() => {
+      
         GetWeather()
-      }, 1000)
+    
     );
   };
 
@@ -119,6 +161,19 @@ const App = () => {
     try {
       // console.log(currentLatitude)
       const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${"0d73de379dffe7d028b1d22e3459a4fc"}`)
+      const data = await res.json()
+      console.log(data)
+      SetClimate(data)
+      SetClimateStatus(true)
+    } catch (error) {
+      console.log("error", error.message)
+    }
+  }
+
+  const GetWeatherOfCity = async (lat,long) => {
+    try {
+      // console.log(currentLatitude)
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${"0d73de379dffe7d028b1d22e3459a4fc"}`)
       const data = await res.json()
       console.log(data)
       SetClimate(data)
@@ -209,7 +264,7 @@ const App = () => {
       elevation: 10,
     },
     ValueEntered: {
-      marginTop: 275
+      marginTop: 155
 
     }
   });
@@ -225,11 +280,30 @@ const App = () => {
       fontSize: 20
     }
   })
-
   return (
     <View style={styles.containor}>
-      <View>
-        {/* <SelectListBox /> */}
+      <View style={{ borderWidth: 1, borderColor: "red" }}>
+        <Picker
+          selectedValue={City}
+          style={{ height: 50, width: 150, borderWidth: 1, borderColor: "white" }}
+          onValueChange={(itemValue) => {
+            setSelected(itemValue)
+            for (let x in Options) {
+              if (City === x) {
+                SetCityCords({ ...CityCords, latitude: Options[x].latitude, longitude: Options[x].longitude })
+                console.log(CityCords)
+                GetWeatherOfCity(Options[x].latitude,Options[x].longitude)
+                break
+              }
+            }
+            
+          }}
+        >{data.map((e) => {
+          return (
+            <Picker.Item key={e.key} label={e.value} value={e.value} />
+          )
+        })}
+        </Picker>
       </View>
       {Climate.name ?
         <View style={ClimateStyles.container}>
@@ -281,6 +355,9 @@ const App = () => {
           <Text style={styles.SpecialButtons} onPress={(e) => HandelMod()}>%</Text>
           <Text onPress={(e) => HandelClick(e)} style={styles.textStyle}>0</Text>
         </View>
+      </View>
+      <View>
+        <Button title='Weather' />
       </View>
     </View>
   );
