@@ -12,7 +12,7 @@ import {
   ScrollView,
   StatusBar,
   StyleSheet,
-  Text,PermissionsAndroid,
+  Text, PermissionsAndroid,
   Platform,
   useColorScheme,
   View,
@@ -27,11 +27,13 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Geolocation from '@react-native-community/geolocation';
+import { SelectListBox } from './components/select';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
- 
-  const [Climate,SetClimate] = useState({})
+
+  const [Climate, SetClimate] = useState({})
+  const [ClimateStatus, SetClimateStatus] = useState(false)
 
   const [value, SetValue] = useState("")
 
@@ -51,7 +53,7 @@ const App = () => {
     locationStatus,
     setLocationStatus
   ] = useState('');
- 
+
   useEffect(() => {
     const requestLocationPermission = async () => {
       if (Platform.OS === 'ios') {
@@ -79,8 +81,9 @@ const App = () => {
       }
     };
     requestLocationPermission();
+
   }, []);
-  
+
   const getOneTimeLocation = () => {
     setLocationStatus('Getting Location ...');
 
@@ -92,11 +95,10 @@ const App = () => {
         const currentLongitude = JSON.stringify(position.coords.longitude);
 
         const currentLatitude = JSON.stringify(position.coords.latitude);
- 
+
         setCurrentLongitude(currentLongitude);
-        
+
         setCurrentLatitude(currentLatitude);
-        GetWeather()
       },
       (error) => {
         setLocationStatus(error.message);
@@ -107,21 +109,25 @@ const App = () => {
         timeout: 30000,
         maximumAge: 1000
       },
+      setTimeout(() => {
+        GetWeather()
+      }, 1000)
     );
   };
 
-  const GetWeather = async()=>{
-      try {
-        // console.log(currentLatitude)
-        const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${"0d73de379dffe7d028b1d22e3459a4fc"}`)
-        const data = await res.json()
-        console.log(data)
-        SetClimate(data)
-      } catch (error) {
-        console.log(error.message)
-      }
+  const GetWeather = async () => {
+    try {
+      // console.log(currentLatitude)
+      const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${"0d73de379dffe7d028b1d22e3459a4fc"}`)
+      const data = await res.json()
+      console.log(data)
+      SetClimate(data)
+      SetClimateStatus(true)
+    } catch (error) {
+      console.log("error", error.message)
+    }
   }
- 
+
 
   const HandelClick = (e) => {
     SetValue(value + e._dispatchInstances.memoizedProps.children)
@@ -204,14 +210,36 @@ const App = () => {
     },
     ValueEntered: {
       marginTop: 275
+
     }
   });
- 
 
- 
-  
+  const ClimateStyles = StyleSheet.create({
+    container: {
+      borderWidth: 1,
+      borderColor: "red",
+      borderRadius: 10,
+      padding: 10
+    },
+    Text: {
+      fontSize: 20
+    }
+  })
+
   return (
     <View style={styles.containor}>
+      <View>
+        <SelectListBox />
+      </View>
+      {Climate.name ?
+        <View style={ClimateStyles.container}>
+          <Text style={ClimateStyles.Text}>City:- {Climate.name}</Text>
+          <Text style={ClimateStyles.Text}>Temp:- {Math.floor(Climate.main.temp_max - 273.15)}°C</Text>
+          <Text style={ClimateStyles.Text}>Pressure:- {Climate.main.pressure / 1000}-bar</Text>
+          <Text style={ClimateStyles.Text}>Humidity:- {Climate.main.humidity}%</Text>
+          <Text style={ClimateStyles.Text}>WindSpeed:- {Climate.wind.speed}M/S</Text>
+        </View>
+        : ""}
       <View>
         <Text style={styles.result}>{Sum}</Text>
         <SafeAreaView>
@@ -229,6 +257,7 @@ const App = () => {
         <Text onPress={(e) => HandelMul()} style={styles.SpecialButtons}>*</Text>
         <Text style={styles.SpecialButtons} onPress={(e) => {
           SetSum(0)
+          SetHistory("")
         }} >C</Text>
       </View>
       <View style={styles.flex}>
