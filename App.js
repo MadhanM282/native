@@ -27,7 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import Geolocation from '@react-native-community/geolocation';
-import { SelectListBox } from './components/select';
+// import { SelectListBox } from './components/select';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -229,7 +229,7 @@ const App = () => {
   return (
     <View style={styles.containor}>
       <View>
-        <SelectListBox />
+        {/* <SelectListBox /> */}
       </View>
       {Climate.name ?
         <View style={ClimateStyles.container}>
