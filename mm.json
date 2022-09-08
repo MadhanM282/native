@@ -1,0 +1,486 @@
+{
+    "base": "stations",
+    "clouds": {
+        "all": 40
+    },
+    "cod": 200,
+    "coord": {
+        "lat": 12.9716,
+        "lon": 77.5946
+    },
+    "dt": 1662096205,
+    "id": 1277333,
+    "main": {
+        "feels_like": 299.58,
+        "humidity": 73,
+        "pressure": 1014,
+        "temp": 299.03,
+        "temp_max": 301.11,
+        "temp_min": 296
+    },
+    "name": "Bengaluru",
+    "sys": {
+        "country": "IN",
+        "id": 2017753,
+        "sunrise": 1662079127,
+        "sunset": 1662123632,
+        "type": 2
+    },
+    "timezone": 19800,
+    "visibility": 6000,
+    "weather": [
+        {
+            "description": "scattered clouds",
+            "icon": "03d",
+            "id": 802,
+            "main": "Clouds"
+        }
+    ],
+    "wind": {
+        "deg": 160,
+        "speed": 1.54
+    }
+}
+
+[
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 93
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 10,
+            "lon": 76.5
+        },
+        "dt": 1662542591,
+        "id": 1267254,
+        "main": {
+            "feels_like": 303.28,
+            "grnd_level": 1005,
+            "humidity": 89,
+            "pressure": 1008,
+            "sea_level": 1008,
+            "temp": 299.97,
+            "temp_max": 301.32,
+            "temp_min": 299.97
+        },
+        "name": "Kerala",
+        "rain": {
+            "1h": 0.37
+        },
+        "sys": {
+            "country": "IN",
+            "id": 9211,
+            "sunrise": 1662511476,
+            "sunset": 1662555607,
+            "type": 1
+        },
+        "timezone": 19800,
+        "visibility": 6141,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 281,
+            "gust": 5.03,
+            "speed": 2.79
+        }
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 93
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 10,
+            "lon": 76.5
+        },
+        "dt": 1662542591,
+        "id": 1267254,
+        "main": {
+            "feels_like": 303.28,
+            "grnd_level": 1005,
+            "humidity": 89,
+            "pressure": 1008,
+            "sea_level": 1008,
+            "temp": 299.97,
+            "temp_max": 301.32,
+            "temp_min": 299.97
+        },
+        "name": "Kerala",
+        "rain": {
+            "1h": 0.37
+        },
+        "sys": {
+            "country": "IN",
+            "id": 9211,
+            "sunrise": 1662511476,
+            "sunset": 1662555607,
+            "type": 1
+        },
+        "timezone": 19800,
+        "visibility": 6141,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 281,
+            "gust": 5.03,
+            "speed": 2.79
+        }
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 93
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 10,
+            "lon": 76.5
+        },
+        "dt": 1662542591,
+        "id": 1267254,
+        "main": {
+            "feels_like": 303.28,
+            "grnd_level": 1005,
+            "humidity": 89,
+            "pressure": 1008,
+            "sea_level": 1008,
+            "temp": 299.97,
+            "temp_max": 301.32,
+            "temp_min": 299.97
+        },
+        "name": "Kerala",
+        "rain": {
+            "1h": 0.37
+        },
+        "sys": {
+            "country": "IN",
+            "id": 9211,
+            "sunrise": 1662511476,
+            "sunset": 1662555607,
+            "type": 1
+        },
+        "timezone": 19800,
+        "visibility": 6141,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 281,
+            "gust": 5.03,
+            "speed": 2.79
+        }
+    },
+    {
+        "cod": "404",
+        "message": "city not found"
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 40
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 28.6667,
+            "lon": 77.2167
+        },
+        "dt": 1662542468,
+        "id": 1273294,
+        "main": {
+            "feels_like": 311.71,
+            "humidity": 38,
+            "pressure": 1007,
+            "temp": 309.2,
+            "temp_max": 309.2,
+            "temp_min": 309.2
+        },
+        "name": "Delhi",
+        "sys": {
+            "country": "IN",
+            "id": 9165,
+            "sunrise": 1662510728,
+            "sunset": 1662556011,
+            "type": 1
+        },
+        "timezone": 19800,
+        "visibility": 5000,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 270,
+            "speed": 3.09
+        }
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 75
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 19.0144,
+            "lon": 72.8479
+        },
+        "dt": 1662542620,
+        "id": 1275339,
+        "main": {
+            "feels_like": 312.14,
+            "humidity": 74,
+            "pressure": 1004,
+            "temp": 305.14,
+            "temp_max": 305.14,
+            "temp_min": 303.09
+        },
+        "name": "Mumbai",
+        "sys": {
+            "country": "IN",
+            "id": 9052,
+            "sunrise": 1662512094,
+            "sunset": 1662556742,
+            "type": 1
+        },
+        "timezone": 19800,
+        "visibility": 4000,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 300,
+            "speed": 5.14
+        }
+    },
+    {
+        "cod": "404",
+        "message": "city not found"
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 75
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 13.0878,
+            "lon": 80.2785
+        },
+        "dt": 1662542676,
+        "id": 1264527,
+        "main": {
+            "feels_like": 313.14,
+            "humidity": 70,
+            "pressure": 1003,
+            "temp": 306.14,
+            "temp_max": 306.14,
+            "temp_min": 306.14
+        },
+        "name": "Chennai",
+        "rain": {
+            "1h": 0.32
+        },
+        "sys": {
+            "country": "IN",
+            "id": 9218,
+            "sunrise": 1662510483,
+            "sunset": 1662554786,
+            "type": 1
+        },
+        "timezone": 19800,
+        "visibility": 5000,
+        "weather": [
+            [Object
+            ],
+            [Object
+            ],
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 300,
+            "speed": 2.06
+        }
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 66
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 18.5196,
+            "lon": 73.8553
+        },
+        "dt": 1662542601,
+        "id": 1259229,
+        "main": {
+            "feels_like": 304.54,
+            "grnd_level": 946,
+            "humidity": 66,
+            "pressure": 1006,
+            "sea_level": 1006,
+            "temp": 301.83,
+            "temp_max": 301.83,
+            "temp_min": 301.83
+        },
+        "name": "Pune",
+        "sys": {
+            "country": "IN",
+            "sunrise": 1662511867,
+            "sunset": 1662556485
+        },
+        "timezone": 19800,
+        "visibility": 7101,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 36,
+            "gust": 3.03,
+            "speed": 2.5
+        }
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 99
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 15.3333,
+            "lon": 74.0833
+        },
+        "dt": 1662542275,
+        "id": 1271157,
+        "main": {
+            "feels_like": 304.53,
+            "grnd_level": 992,
+            "humidity": 82,
+            "pressure": 1006,
+            "sea_level": 1006,
+            "temp": 300.75,
+            "temp_max": 300.75,
+            "temp_min": 300.75
+        },
+        "name": "Goa",
+        "sys": {
+            "country": "IN",
+            "sunrise": 1662511906,
+            "sunset": 1662556337
+        },
+        "timezone": 19800,
+        "visibility": 5751,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 265,
+            "gust": 3.94,
+            "speed": 3.17
+        }
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 100
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 8.0793,
+            "lon": 77.5499
+        },
+        "dt": 1662542704,
+        "id": 1262204,
+        "main": {
+            "feels_like": 302.52,
+            "grnd_level": 1006,
+            "humidity": 78,
+            "pressure": 1008,
+            "sea_level": 1008,
+            "temp": 300.06,
+            "temp_max": 300.06,
+            "temp_min": 300.06
+        },
+        "name": "Kanyakumari",
+        "sys": {
+            "country": "IN",
+            "sunrise": 1662511276,
+            "sunset": 1662555303
+        },
+        "timezone": 19800,
+        "visibility": 10000,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 269,
+            "gust": 13.39,
+            "speed": 10.53
+        }
+    },
+    {
+        "cod": "404",
+        "message": "city not found"
+    },
+    {
+        "cod": "404",
+        "message": "city not found"
+    },
+    {
+        "base": "stations",
+        "clouds": {
+            "all": 93
+        },
+        "cod": 200,
+        "coord": {
+            "lat": 10,
+            "lon": 76.5
+        },
+        "dt": 1662542591,
+        "id": 1267254,
+        "main": {
+            "feels_like": 303.28,
+            "grnd_level": 1005,
+            "humidity": 89,
+            "pressure": 1008,
+            "sea_level": 1008,
+            "temp": 299.97,
+            "temp_max": 301.32,
+            "temp_min": 299.97
+        },
+        "name": "Kerala",
+        "rain": {
+            "1h": 0.37
+        },
+        "sys": {
+            "country": "IN",
+            "id": 9211,
+            "sunrise": 1662511476,
+            "sunset": 1662555607,
+            "type": 1
+        },
+        "timezone": 19800,
+        "visibility": 6141,
+        "weather": [
+            [Object
+            ]
+        ],
+        "wind": {
+            "deg": 281,
+            "gust": 5.03,
+            "speed": 2.79
+        }
+    }
+]
